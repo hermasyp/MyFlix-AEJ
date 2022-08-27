@@ -1,0 +1,50 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="129dp"
+    android:height="191dp"
+    android:viewportWidth="129"
+    android:viewportHeight="191">
+    <path android:pathData="M128.07,190.47V0.47H99.81V188.88C109.88,189.25 119.37,189.77 128.07,190.47Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="96.18"
+                android:endY="91.46"
+                android:startX="101.91"
+                android:startY="92.49"
+                android:type="linear">
+                <item
+                    android:color="#FFB11917"
+                    android:offset="0" />
+                <item
+                    android:color="#FFA61916"
+                    android:offset="0.19" />
+                <item
+                    android:color="#FF7B1714"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:pathData="M0.37,190.47V0.47H28.63V188.88C18.56,189.25 9.07,189.77 0.37,190.47Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="32.27"
+                android:endY="91.46"
+                android:startX="26.54"
+                android:startY="92.49"
+                android:type="linear">
+                <item
+                    android:color="#FFB11917"
+                    android:offset="0" />
+                <item
+                    android:color="#FFA61916"
+                    android:offset="0.19" />
+                <item
+                    android:color="#FF7B1714"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#E40520"
+        android:pathData="M29.2,56.11L50.55,188.37C55.43,188.3 60.4,188.27 65.45,188.26C70.2,188.26 74.89,188.29 79.5,188.36L99.27,54.21H99.81L107.53,0.41H86.53L66.4,135.47H65.85L44.12,0.47H20.06L28.63,56.17L29.2,56.11Z" />
+</vector>

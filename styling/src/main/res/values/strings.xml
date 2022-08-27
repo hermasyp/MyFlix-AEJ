@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyFlix</string>
+    <string name="message_error_no_internet">Something is wrong with internet connection\nMake sure you have an Internet Connection and try again.</string>
+    <string name="message_error_unknown">Something is wrong when fetch data\nPlease try again</string>
+    <string name="play">Play</string>
+    <string name="my_list">My list</string>
+    <string name="share">Share</string>
+    <string name="details_amp_more"><![CDATA[Details & More]]></string>
+
+    <string-array name="gender_list">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+</resources>
