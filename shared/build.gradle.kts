@@ -1,19 +1,19 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-android")
+    id("kotlin-parcelize")
 }
 
 android {
     compileSdk = AndroidProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = AndroidProjectConfig.applicationId
         minSdk = AndroidProjectConfig.minSdk
         targetSdk = AndroidProjectConfig.targetSdk
-        versionCode = AndroidProjectConfig.versionCode
-        versionName = AndroidProjectConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,6 +35,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared"))
+    //chucker
+    debugImplementation(Libraries.chucker)
+    releaseImplementation(Libraries.chuckerNoOp)
 
+    //core module
+    api(project(":core"))
 }

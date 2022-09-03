@@ -16,3 +16,4 @@ rootProject.name = "MyFlix"
 include ':app'
 include ':styling'
 include ':core'
+include ':shared'
