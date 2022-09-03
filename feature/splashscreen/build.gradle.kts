@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = AndroidProjectConfig.compileSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = AndroidProjectConfig.minSdk
+        targetSdk = AndroidProjectConfig.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -40,7 +40,4 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.appcompat:appcompat:1.5.0")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
