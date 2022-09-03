@@ -1,19 +1,20 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-android")
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
-    compileSdk = AndroidProjectConfig.compileSdk
+    compileSdk = 32
 
     defaultConfig {
-        applicationId = AndroidProjectConfig.applicationId
-        minSdk = AndroidProjectConfig.minSdk
-        targetSdk = AndroidProjectConfig.targetSdk
-        versionCode = AndroidProjectConfig.versionCode
-        versionName = AndroidProjectConfig.versionName
+        minSdk = 21
+        targetSdk = 32
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -32,10 +33,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
     implementation(project(":shared"))
-    implementation(project(":feature:splashscreen"))
-
+    implementation("androidx.appcompat:appcompat:1.5.0")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
