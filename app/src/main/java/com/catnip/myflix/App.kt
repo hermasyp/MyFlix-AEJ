@@ -1,6 +1,7 @@
 package com.catnip.myflix
 
 import android.app.Application
+import com.catnip.login.di.LoginModules
 import com.catnip.myflix.di.AppModules
 import com.catnip.shared.di.SharedModules
 import com.catnip.splashscreen.di.SplashScreenModules
@@ -21,7 +22,8 @@ class App : Application() {
             modules(
                 AppModules.getModules() +
                         SharedModules.getModules() +
-                        SplashScreenModules.getModules()
+                        SplashScreenModules.getModules() +
+                        LoginModules.getModules()
             )
         }
 

@@ -1,1 +1,9 @@
-<resources></resources>
+<resources>
+    <string name="error_field_password">Password should be filled</string>
+    <string name="error_field_email">Email should be filled</string>
+    <string name="error_field_email_not_valid">Please enter a valid Email</string>
+    <string name="text_button_register_new_account">Register New Account</string>
+    <string name="text_button_login">Login</string>
+    <string name="hint_field_password">Password</string>
+    <string name="hint_field_email">Email</string>
+</resources>

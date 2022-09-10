@@ -5,7 +5,8 @@
     <application>
         <activity
             android:name=".presentation.ui.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/MyFlix.NoActionBar" />
     </application>
 
 </manifest>
