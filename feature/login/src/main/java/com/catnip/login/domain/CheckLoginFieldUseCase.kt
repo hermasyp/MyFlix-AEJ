@@ -56,7 +56,6 @@ class CheckLoginFieldUseCase(
             Pair(FIELD_EMAIL, R.string.error_field_email_not_valid)
         } else {
             null
-
         }
 
     }

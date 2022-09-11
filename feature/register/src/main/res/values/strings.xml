@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_field_empty">Please fill this field</string>
+    <string name="error_field_email_not_valid">Please input a valid email</string>
+    <string name="error_field_username_length_below_min">Username min 8 characters</string>
+    <string name="error_field_username_not_allowed_character">Username should not contains special characters</string>
+    <string name="error_field_password_length_below_min">Password min 8 characters</string>
+    <string name="hint_email_field">Email</string>
+    <string name="text_button_already_have_account">Already have an Account</string>
+    <string name="text_button_register">Register</string>
+    <string name="hint_field_gender">Gender</string>
+    <string name="hint_field_birthdate">Birthdate</string>
+    <string name="hint_field_username">Username</string>
+    <string name="hint_field_password">Password</string>
+    <string name="hint_field_email">Email</string>
+</resources>

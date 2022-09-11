@@ -3,6 +3,7 @@ package com.catnip.myflix
 import android.app.Application
 import com.catnip.login.di.LoginModules
 import com.catnip.myflix.di.AppModules
+import com.catnip.register.di.RegisterModules
 import com.catnip.shared.di.SharedModules
 import com.catnip.splashscreen.di.SplashScreenModules
 import org.koin.android.ext.koin.androidContext
@@ -23,7 +24,8 @@ class App : Application() {
                 AppModules.getModules() +
                         SharedModules.getModules() +
                         SplashScreenModules.getModules() +
-                        LoginModules.getModules()
+                        LoginModules.getModules() +
+                        RegisterModules.getModules()
             )
         }
 

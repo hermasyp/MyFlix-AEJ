@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.catnip.home.presentation.ui.HomeActivity
 import com.catnip.login.presentation.ui.LoginActivity
+import com.catnip.register.presentation.ui.RegisterActivity
 import com.catnip.shared.router.ActivityRouter
 
 /**
@@ -17,5 +18,9 @@ class ActivityRouterImpl : ActivityRouter {
 
     override fun homeActivity(context: Context): Intent {
         return Intent(context, HomeActivity::class.java)
+    }
+
+    override fun registerActivity(context: Context): Intent {
+        return Intent(context, RegisterActivity::class.java)
     }
 }
