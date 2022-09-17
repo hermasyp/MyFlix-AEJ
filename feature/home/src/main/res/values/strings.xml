@@ -1,0 +1,7 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="info">Info</string>
+    <string name="text_empty_watchlist">There\'s no movie in here \n Go add some movies to your watchlist</string>
+
+</resources>

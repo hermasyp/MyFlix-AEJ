@@ -1,1 +1,0 @@
-/Users/hermasyp/My Documents/Work Space/AEJ/Project/MyFlix2/buildSrc/build/classes/kotlin/main/AndroidProjectConfig.class:/Users/hermasyp/My Documents/Work Space/AEJ/Project/MyFlix2/buildSrc/build/classes/kotlin/main/Libraries$Versions.class:/Users/hermasyp/My Documents/Work Space/AEJ/Project/MyFlix2/buildSrc/build/classes/kotlin/main/Libraries.class

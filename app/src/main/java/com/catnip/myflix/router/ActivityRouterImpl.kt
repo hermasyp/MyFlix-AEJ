@@ -2,7 +2,7 @@ package com.catnip.myflix.router
 
 import android.content.Context
 import android.content.Intent
-import com.catnip.home.presentation.ui.HomeActivity
+import com.catnip.home.presentation.ui.home.HomeActivity
 import com.catnip.login.presentation.ui.LoginActivity
 import com.catnip.register.presentation.ui.RegisterActivity
 import com.catnip.shared.router.ActivityRouter
