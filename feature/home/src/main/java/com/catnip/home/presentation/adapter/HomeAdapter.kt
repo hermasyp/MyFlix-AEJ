@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.catnip.home.R
 import com.catnip.home.databinding.ItemHeaderHomeBinding
 import com.catnip.home.databinding.ItemSectionMovieBinding
-import com.catnip.home.presentation.adapter.viewholder.HomeHeaderClickListener
 import com.catnip.home.presentation.adapter.viewholder.HomeHeaderViewHolder
 import com.catnip.home.presentation.adapter.viewholder.HomeSectionViewHolder
 import com.catnip.home.presentation.viewparam.homeitem.HomeUiItem
@@ -17,8 +16,7 @@ Written with love by Muhammad Hermas Yuda Pamungkas
 Github : https://github.com/hermasyp
  **/
 class HomeAdapter(
-    private val headerClickListener: HomeHeaderClickListener,
-    private val onMovieClicked: (MovieViewParam) -> Unit,
+    private val listener: HomeAdapterClickListener,
     private val recyclerViewPool: RecyclerView.RecycledViewPool
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -38,7 +36,7 @@ class HomeAdapter(
                     parent,
                     false
                 )
-                HomeHeaderViewHolder(binding, headerClickListener)
+                HomeHeaderViewHolder(binding, listener)
             }
             else -> {
                 val binding = ItemSectionMovieBinding.inflate(
@@ -46,7 +44,7 @@ class HomeAdapter(
                     parent,
                     false
                 )
-                HomeSectionViewHolder(binding,recyclerViewPool, onMovieClicked)
+                HomeSectionViewHolder(binding,recyclerViewPool, listener)
             }
         }
     }
@@ -71,4 +69,10 @@ class HomeAdapter(
         }
     }
 
+}
+
+interface HomeAdapterClickListener {
+    fun onMyListClicked(movieViewParam: MovieViewParam)
+    fun onPlayMovieClicked(movieViewParam: MovieViewParam)
+    fun onMovieClicked(movieViewParam: MovieViewParam)
 }

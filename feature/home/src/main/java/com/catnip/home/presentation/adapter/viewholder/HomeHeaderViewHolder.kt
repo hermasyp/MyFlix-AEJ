@@ -3,6 +3,7 @@ package com.catnip.home.presentation.adapter.viewholder
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.catnip.home.databinding.ItemHeaderHomeBinding
+import com.catnip.home.presentation.adapter.HomeAdapterClickListener
 import com.catnip.home.presentation.viewparam.homeitem.HomeUiItem
 import com.catnip.shared.data.model.viewparam.MovieViewParam
 import com.catnip.shared.utils.CommonUtils
@@ -13,7 +14,7 @@ Github : https://github.com/hermasyp
  **/
 class HomeHeaderViewHolder(
     private val binding: ItemHeaderHomeBinding,
-    private val listener: HomeHeaderClickListener
+    private val listener: HomeAdapterClickListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bindView(item: HomeUiItem.HeaderSectionItem) {
@@ -25,7 +26,7 @@ class HomeHeaderViewHolder(
             binding.ivHeaderMovie.load(this.posterUrl)
             binding.tvTitleMovie.text = this.title
             binding.tvInfoHeader.setOnClickListener {
-                listener.onInfoClicked(this)
+                listener.onMovieClicked(this)
             }
             binding.tvAddToWatchlistHeader.setOnClickListener {
                 listener.onMyListClicked(this)
@@ -38,8 +39,3 @@ class HomeHeaderViewHolder(
 
 }
 
-interface HomeHeaderClickListener {
-    fun onMyListClicked(movieViewParam: MovieViewParam)
-    fun onPlayMovieClicked(movieViewParam: MovieViewParam)
-    fun onInfoClicked(movieViewParam: MovieViewParam)
-}
