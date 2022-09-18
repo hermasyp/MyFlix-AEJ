@@ -1,5 +1,6 @@
 package com.catnip.home.presentation.ui.homefeeds
 
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +32,7 @@ class HomeFeedsFragment : BaseFragment<FragmentHomeFeedsBinding, HomeViewModel>(
     private val homeAdapter: HomeAdapter by lazy {
         HomeAdapter(object : HomeAdapterClickListener {
             override fun onMyListClicked(movieViewParam: MovieViewParam) {
-                //todo : add to watchlist
+                viewModel.addOrRemoveWatchlist(movieViewParam)
             }
 
             override fun onPlayMovieClicked(movieViewParam: MovieViewParam) {
@@ -102,6 +103,21 @@ class HomeFeedsFragment : BaseFragment<FragmentHomeFeedsBinding, HomeViewModel>(
                         )
                 )
             })
+        }
+        viewModel.getWatchlistResult().observe(this) {
+            it.subscribe(
+                doOnSuccess = {
+                    Toast.makeText(
+                        requireContext(),
+                        if (it.payload?.isUserWatchlist == true)
+                            getString(R.string.text_add_watchlist_success)
+                        else
+                            getString(R.string.text_remove_watchlist_success),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }, doOnError = {
+
+                })
         }
     }
 

@@ -9,6 +9,8 @@ import com.catnip.home.domain.GetUserWatchlistUseCase
 import com.catnip.home.presentation.viewparam.homeitem.HomeUiItem
 import com.catnip.shared.data.model.viewparam.MovieViewParam
 import com.catnip.shared.data.model.viewparam.UserViewParam
+import com.catnip.shared.delegates.AddOrRemoveWatchlistDelegates
+import com.catnip.shared.delegates.AddOrRemoveWatchlistDelegatesImpl
 import com.catnip.shared.domain.GetCurrentUserUseCase
 import kotlinx.coroutines.launch
 
@@ -20,11 +22,15 @@ class HomeViewModel(
     private val getHomeFeedsUseCase: GetHomeFeedsUseCase,
     private val getUserWatchlistUseCase: GetUserWatchlistUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase
-) : ViewModel() {
+) : ViewModel(), AddOrRemoveWatchlistDelegates by AddOrRemoveWatchlistDelegatesImpl() {
 
     val homeFeedsResult = MutableLiveData<ViewResource<List<HomeUiItem>>>()
     val watchlistResult = MutableLiveData<ViewResource<List<MovieViewParam>>>()
     val currentUserResult = MutableLiveData<ViewResource<UserViewParam>>()
+
+    init {
+        init(viewModelScope)
+    }
 
     fun fetchHome() {
         viewModelScope.launch {

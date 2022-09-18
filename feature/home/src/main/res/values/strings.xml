@@ -5,4 +5,6 @@
     <string name="text_empty_watchlist">There\'s no movie in here \n Go add some movies to your watchlist</string>
     <string name="tab_home">Home</string>
     <string name="tab_my_list">My List</string>
+    <string name="text_add_watchlist_success">Add Watchlist Success</string>
+    <string name="text_remove_watchlist_success">Remove Watchlist Success</string>
 </resources>

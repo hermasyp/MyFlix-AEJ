@@ -12,6 +12,7 @@ import com.catnip.shared.data.repository.SharedApiRepository
 import com.catnip.shared.data.repository.SharedApiRepositoryImpl
 import com.catnip.shared.data.repository.UserPreferenceRepository
 import com.catnip.shared.data.repository.UserPreferenceRepositoryImpl
+import com.catnip.shared.domain.AddOrRemoveWatchlistUseCase
 import com.catnip.shared.domain.GetCurrentUserUseCase
 import com.catnip.shared.domain.GetUserTokenUseCase
 import com.catnip.shared.domain.SaveAuthDataUseCase
@@ -52,6 +53,7 @@ object SharedModules : BaseModules {
     private val sharedUseCase = module {
         single { GetUserTokenUseCase(get(), Dispatchers.IO) }
         single { SaveAuthDataUseCase(get(), Dispatchers.IO) }
+        single { AddOrRemoveWatchlistUseCase(get(), Dispatchers.IO) }
         single { GetCurrentUserUseCase(get(), Dispatchers.IO) }
     }
     private val common = module {
