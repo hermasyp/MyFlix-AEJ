@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="bottom_nav_bg_color" type="color">#171717</item>
+    <color name="black_transparent">#BF000000</color>
+
+</resources>

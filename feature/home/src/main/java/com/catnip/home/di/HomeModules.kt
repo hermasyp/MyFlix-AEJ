@@ -8,8 +8,10 @@ import com.catnip.home.data.network.repository.HomeRepositoryImpl
 import com.catnip.home.data.network.services.HomeFeatureApi
 import com.catnip.home.domain.GetHomeFeedsUseCase
 import com.catnip.home.domain.GetUserWatchlistUseCase
+import com.catnip.home.presentation.ui.home.HomeViewModel
 import com.catnip.shared.data.remote.NetworkClient
 import kotlinx.coroutines.Dispatchers
+import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -27,7 +29,7 @@ object HomeModules : FeatureModules {
     }
 
     override val viewModels: Module = module {
-
+        viewModelOf(::HomeViewModel)
     }
 
     override val dataSources: Module = module {

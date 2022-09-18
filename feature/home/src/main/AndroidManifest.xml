@@ -4,6 +4,7 @@
 
     <application>
         <activity
+            android:theme="@style/MyFlix.NoActionBar"
             android:name=".presentation.ui.home.HomeActivity"
             android:exported="false" />
     </application>
