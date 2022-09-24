@@ -1,21 +1,75 @@
 package com.catnip.home.presentation.ui.watchlist
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.GridLayoutManager
+import com.catnip.core.base.BaseFragment
 import com.catnip.home.R
+import com.catnip.home.databinding.FragmentWatchlistBinding
+import com.catnip.home.presentation.adapter.MovieAdapter
+import com.catnip.home.presentation.ui.home.HomeViewModel
+import com.catnip.shared.utils.ext.subscribe
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+
+class WatchlistFragment : BaseFragment<FragmentWatchlistBinding, HomeViewModel>(
+    FragmentWatchlistBinding::inflate
+) {
+
+    override val viewModel: HomeViewModel by sharedViewModel()
 
 
-class WatchlistFragment : Fragment() {
+    private val movieAdapter: MovieAdapter by lazy {
+        MovieAdapter(true) {
+            //todo : open dialog info
+        }
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_watchlist, container, false)
+    override fun initView() {
+        binding.rvWatchlist.apply {
+            adapter = movieAdapter
+            layoutManager = GridLayoutManager(requireContext(), 3)
+        }
+        initRefresh()
+        viewModel.fetchWatchlist()
+    }
+
+    override fun observeData() {
+        super.observeData()
+        viewModel.watchlistResult.observe(this) {
+            it.subscribe(
+                doOnSuccess = { response ->
+                    showLoading(false)
+                    binding.tvErrorWatchlist.isVisible = false
+                    response.payload?.let { data -> movieAdapter.setItems(data) }
+                },
+                doOnError = { error ->
+                    showLoading(false)
+                    binding.tvErrorWatchlist.isVisible = true
+                    binding.tvErrorWatchlist.text = error.exception?.message
+
+                },
+                doOnLoading = {
+                    binding.tvErrorWatchlist.isVisible = false
+                    showLoading(true)
+                },
+                doOnEmpty = {
+                    showLoading(false)
+                    binding.tvErrorWatchlist.isVisible = true
+                    binding.tvErrorWatchlist.text = getString(R.string.text_empty_watchlist)
+                }
+            )
+        }
+    }
+
+    private fun showLoading(isShowLoading: Boolean) {
+        binding.rvWatchlist.isVisible = !isShowLoading
+        binding.pbWatchlist.isVisible = isShowLoading
+    }
+
+    private fun initRefresh() {
+        binding.srlWatchlist.setOnRefreshListener {
+            viewModel.fetchWatchlist()
+            binding.srlWatchlist.isRefreshing = false
+        }
     }
 
 }
