@@ -1,4 +1,4 @@
-package com.catnip.splashscreen.presentation
+package com.catnip.splashscreen.presentation.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

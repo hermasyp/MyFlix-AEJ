@@ -1,4 +1,4 @@
-package com.catnip.splashscreen.presentation
+package com.catnip.splashscreen.presentation.ui
 
 import android.content.Intent
 import android.widget.Toast

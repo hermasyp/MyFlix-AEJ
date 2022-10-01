@@ -5,7 +5,7 @@
     <application>
         <activity
             android:theme="@style/MyFlix.NoActionBar"
-            android:name=".presentation.SplashScreenActivity"
+            android:name=".presentation.ui.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

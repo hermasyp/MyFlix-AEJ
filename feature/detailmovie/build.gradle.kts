@@ -1,19 +1,20 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-android")
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
     compileSdk = AndroidProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = AndroidProjectConfig.applicationId
         minSdk = AndroidProjectConfig.minSdk
         targetSdk = AndroidProjectConfig.targetSdk
-        versionCode = AndroidProjectConfig.versionCode
-        versionName = AndroidProjectConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -32,14 +33,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
     implementation(project(":shared"))
-    implementation(project(":feature:splashscreen"))
-    implementation(project(":feature:home"))
-    implementation(project(":feature:login"))
-    implementation(project(":feature:register"))
-    implementation(project(":feature:detailmovie"))
-
 }

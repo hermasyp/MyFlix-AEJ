@@ -8,7 +8,7 @@ import com.catnip.splashscreen.data.network.service.SplashScreenFeatureApi
 import com.catnip.splashscreen.data.repository.SplashScreenRepository
 import com.catnip.splashscreen.data.repository.SplashScreenRepositoryImpl
 import com.catnip.splashscreen.domain.SyncUserUseCase
-import com.catnip.splashscreen.presentation.SplashScreenViewModel
+import com.catnip.splashscreen.presentation.ui.SplashScreenViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.Module

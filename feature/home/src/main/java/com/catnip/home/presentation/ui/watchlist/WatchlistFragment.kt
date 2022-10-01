@@ -7,7 +7,9 @@ import com.catnip.home.R
 import com.catnip.home.databinding.FragmentWatchlistBinding
 import com.catnip.home.presentation.adapter.MovieAdapter
 import com.catnip.home.presentation.ui.home.HomeViewModel
+import com.catnip.shared.router.BottomSheetRouter
 import com.catnip.shared.utils.ext.subscribe
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class WatchlistFragment : BaseFragment<FragmentWatchlistBinding, HomeViewModel>(
@@ -15,11 +17,13 @@ class WatchlistFragment : BaseFragment<FragmentWatchlistBinding, HomeViewModel>(
 ) {
 
     override val viewModel: HomeViewModel by sharedViewModel()
+    private val bottomSheetRouter: BottomSheetRouter by inject()
 
 
     private val movieAdapter: MovieAdapter by lazy {
         MovieAdapter(true) {
-            //todo : open dialog info
+            bottomSheetRouter.createMovieInfoBottomSheet(it)
+                .show(childFragmentManager, null)
         }
     }
 

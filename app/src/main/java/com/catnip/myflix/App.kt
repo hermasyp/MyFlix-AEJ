@@ -1,6 +1,7 @@
 package com.catnip.myflix
 
 import android.app.Application
+import com.catnip.detailmovie.di.DetailMovieModule
 import com.catnip.home.di.HomeModules
 import com.catnip.login.di.LoginModules
 import com.catnip.myflix.di.AppModules
@@ -27,7 +28,8 @@ class App : Application() {
                         SplashScreenModules.getModules() +
                         LoginModules.getModules() +
                         RegisterModules.getModules() +
-                        HomeModules.getModules()
+                        HomeModules.getModules() +
+                        DetailMovieModule.getModules()
             )
         }
 
