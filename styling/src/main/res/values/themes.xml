@@ -33,7 +33,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="TMyFlix.NoActionBar.FullScreen" parent="MyFlix.NoActionBar">
+    <style name="MyFlix.NoActionBar.FullScreen" parent="MyFlix.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>

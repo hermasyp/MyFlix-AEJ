@@ -12,6 +12,7 @@ import com.catnip.home.presentation.adapter.HomeAdapter
 import com.catnip.home.presentation.adapter.HomeAdapterClickListener
 import com.catnip.home.presentation.ui.home.HomeViewModel
 import com.catnip.shared.data.model.viewparam.MovieViewParam
+import com.catnip.shared.router.ActivityRouter
 import com.catnip.shared.router.BottomSheetRouter
 import com.catnip.shared.utils.ColorUtils
 import com.catnip.shared.utils.ext.subscribe
@@ -29,6 +30,8 @@ class HomeFeedsFragment : BaseFragment<FragmentHomeFeedsBinding, HomeViewModel>(
 
     private val bottomSheetRouter: BottomSheetRouter by inject()
 
+    private val activityRouter: ActivityRouter by inject()
+
     private val recyclerViewPool: RecyclerView.RecycledViewPool by lazy {
         RecyclerView.RecycledViewPool()
     }
@@ -40,7 +43,7 @@ class HomeFeedsFragment : BaseFragment<FragmentHomeFeedsBinding, HomeViewModel>(
             }
 
             override fun onPlayMovieClicked(movieViewParam: MovieViewParam) {
-                //todo : open player
+                startActivity(activityRouter.playerActivity(requireContext(),movieViewParam.videoUrl))
             }
 
             override fun onMovieClicked(movieViewParam: MovieViewParam) {

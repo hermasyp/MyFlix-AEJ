@@ -24,6 +24,7 @@ class MovieInfoBottomSheet(private val movie: MovieViewParam) : BottomSheetDialo
     private val activityRouter: ActivityRouter by inject()
     private val viewModel: MovieInfoViewModel by inject()
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,7 +63,7 @@ class MovieInfoBottomSheet(private val movie: MovieViewParam) : BottomSheetDialo
             this.dismiss()
         }
         binding.llPlayMovie.setOnClickListener {
-            //todo : open player activity
+            startActivity(activityRouter.playerActivity(requireContext(),movie.videoUrl))
         }
         binding.llShare.setOnClickListener {
             CommonUtils.shareFilm(requireContext(), movie)

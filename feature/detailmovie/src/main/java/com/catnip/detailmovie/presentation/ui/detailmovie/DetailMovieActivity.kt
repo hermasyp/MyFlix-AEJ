@@ -8,6 +8,7 @@ import com.catnip.core.base.BaseActivity
 import com.catnip.detailmovie.databinding.ActivityDetailMovieBinding
 import com.catnip.shared.data.model.viewparam.MovieViewParam
 import com.catnip.shared.router.ActivityRouter
+import com.catnip.shared.router.FragmentRouter
 import com.catnip.shared.utils.CommonUtils
 import com.catnip.shared.utils.ext.subscribe
 import org.koin.android.ext.android.inject
@@ -18,6 +19,7 @@ class DetailMovieActivity :
     override val viewModel: DetailMovieViewModel by inject()
 
     private val activityRouter: ActivityRouter by inject()
+    private val fragmentRouter: FragmentRouter by inject()
 
     private val movieId: String? by lazy { intent?.extras?.getString(EXTRA_ID_MOVIE) }
 
@@ -102,7 +104,12 @@ class DetailMovieActivity :
         binding.layoutDetail.layoutHeaderDetail.ivPlayTrailer.setOnClickListener {
             binding.layoutDetail.layoutHeaderDetail.flHeaderPoster.isVisible = false
             binding.layoutDetail.layoutHeaderDetail.containerPlayer.isVisible = true
-            //todo : replace container into player
+            supportFragmentManager.beginTransaction().apply {
+                replace(
+                    binding.layoutDetail.layoutHeaderDetail.containerPlayer.id,
+                    fragmentRouter.createPlayerFragment(movie.trailerUrl)
+                )
+            }.commit()
         }
         binding.layoutDetail.clDetailMovie.llShare.setOnClickListener {
             CommonUtils.shareFilm(this, movie)
@@ -111,8 +118,7 @@ class DetailMovieActivity :
             viewModel.addOrRemoveWatchlist(movie)
         }
         binding.layoutDetail.clDetailMovie.cvPlay.setOnClickListener {
-            //todo : navigate to player activity
-
+            startActivity(activityRouter.playerActivity(this,movie.videoUrl))
         }
     }
 
