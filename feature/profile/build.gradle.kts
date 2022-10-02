@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.catnip.home"
+    namespace = "com.catnip.profile"
     compileSdk = AndroidProjectConfig.compileSdk
 
     defaultConfig {

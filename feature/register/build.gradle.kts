@@ -7,6 +7,7 @@ plugins {
 }
 
 android {
+    namespace = "com.catnip.register"
     compileSdk = AndroidProjectConfig.compileSdk
 
     defaultConfig {

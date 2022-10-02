@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/login" />
             <option value="$PROJECT_DIR$/feature/player" />
+            <option value="$PROJECT_DIR$/feature/profile" />
             <option value="$PROJECT_DIR$/feature/register" />
             <option value="$PROJECT_DIR$/feature/splashscreen" />
             <option value="$PROJECT_DIR$/shared" />

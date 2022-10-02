@@ -7,6 +7,7 @@ plugins {
 }
 
 android {
+    namespace = "com.catnip.detailmovie"
     compileSdk = AndroidProjectConfig.compileSdk
 
     defaultConfig {
