@@ -6,6 +6,7 @@ import com.catnip.detailmovie.presentation.ui.detailmovie.DetailMovieActivity
 import com.catnip.home.presentation.ui.home.HomeActivity
 import com.catnip.login.presentation.ui.LoginActivity
 import com.catnip.player.presentation.playeractivity.PlayerActivity
+import com.catnip.profile.presentation.ui.ProfileActivity
 import com.catnip.register.presentation.ui.RegisterActivity
 import com.catnip.shared.router.ActivityRouter
 
@@ -32,6 +33,10 @@ class ActivityRouterImpl : ActivityRouter {
 
     override fun playerActivity(context: Context, videoUrl: String): Intent {
         return PlayerActivity.createIntent(context, videoUrl)
+    }
+
+    override fun profileActivity(context: Context): Intent {
+        return Intent(context, ProfileActivity::class.java)
     }
 
 }

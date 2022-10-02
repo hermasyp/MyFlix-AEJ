@@ -12,10 +12,7 @@ import com.catnip.shared.data.repository.SharedApiRepository
 import com.catnip.shared.data.repository.SharedApiRepositoryImpl
 import com.catnip.shared.data.repository.UserPreferenceRepository
 import com.catnip.shared.data.repository.UserPreferenceRepositoryImpl
-import com.catnip.shared.domain.AddOrRemoveWatchlistUseCase
-import com.catnip.shared.domain.GetCurrentUserUseCase
-import com.catnip.shared.domain.GetUserTokenUseCase
-import com.catnip.shared.domain.SaveAuthDataUseCase
+import com.catnip.shared.domain.*
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -55,6 +52,8 @@ object SharedModules : BaseModules {
         single { SaveAuthDataUseCase(get(), Dispatchers.IO) }
         single { AddOrRemoveWatchlistUseCase(get(), Dispatchers.IO) }
         single { GetCurrentUserUseCase(get(), Dispatchers.IO) }
+        single { SaveUserDataUseCase(get(), Dispatchers.IO) }
+        single { ClearUserDataUseCase(get(), Dispatchers.IO) }
     }
     private val common = module {
         single { Gson() }

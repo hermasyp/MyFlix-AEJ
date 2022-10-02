@@ -43,7 +43,12 @@ class HomeFeedsFragment : BaseFragment<FragmentHomeFeedsBinding, HomeViewModel>(
             }
 
             override fun onPlayMovieClicked(movieViewParam: MovieViewParam) {
-                startActivity(activityRouter.playerActivity(requireContext(),movieViewParam.videoUrl))
+                startActivity(
+                    activityRouter.playerActivity(
+                        requireContext(),
+                        movieViewParam.videoUrl
+                    )
+                )
             }
 
             override fun onMovieClicked(movieViewParam: MovieViewParam) {
@@ -76,6 +81,13 @@ class HomeFeedsFragment : BaseFragment<FragmentHomeFeedsBinding, HomeViewModel>(
     override fun initView() {
         setupRecyclerView()
         initData()
+        setOnClickListeners()
+    }
+
+    private fun setOnClickListeners() {
+        binding.ivAvatarUser.setOnClickListener {
+            startActivity(activityRouter.profileActivity(requireContext()))
+        }
     }
 
     override fun observeData() {

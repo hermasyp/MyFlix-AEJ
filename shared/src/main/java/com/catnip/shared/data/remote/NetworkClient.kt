@@ -16,7 +16,6 @@ Written with love by Muhammad Hermas Yuda Pamungkas
 Github : https://github.com/hermasyp
  **/
 
-//todo : preparing usecase for get token
 class NetworkClient(
     val getUserTokenUseCase: GetUserTokenUseCase,
     val chuckerInterceptor: ChuckerInterceptor

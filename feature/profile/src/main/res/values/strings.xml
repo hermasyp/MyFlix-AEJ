@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_text_username_less_than_min_char">Username min 8 character</string>
+    <string name="error_text_username_required">Please input this field</string>
+    <string name="error_text_username_no_space">Username should not include special character</string>
+    <string name="hint_field_username">Username</string>
+    <string name="text_button_update_profile">Update Profile</string>
+    <string name="text_button_logout">Logout</string>
+    <string name="text_update_profile_success">Update Profile Success</string>
+    <string name="message_logout">Logout MyFlix ?</string>
+    <string name="logout">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="text_failed_logout">Failed to logout</string>
+    <string name="text_title_toolbar_profile">Profile</string>
+</resources>
