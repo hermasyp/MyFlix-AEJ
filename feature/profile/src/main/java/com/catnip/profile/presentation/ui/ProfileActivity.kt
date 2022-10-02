@@ -21,16 +21,15 @@ class ProfileActivity :
     override val viewModel: ProfileViewModel by viewModel()
     private val router: ActivityRouter by inject()
 
-    private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
-        enableHomeAsBack()
-    }
-
-
     override fun initView() {
         setupToolbar()
         initData()
         setClickListeners()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.toolbar)
+        enableHomeAsBack()
     }
 
     private fun initData() {
@@ -50,9 +49,9 @@ class ProfileActivity :
     }
 
     override fun observeData() {
-        viewModel.updateProfileResult.observe(this) { registerResult ->
+        viewModel.updateProfileResult.observe(this) { updateResult ->
             resetField()
-            registerResult.subscribe(doOnLoading = {
+            updateResult.subscribe(doOnLoading = {
                 showLoading(true)
             }, doOnSuccess = {
                 showLoading(false)
@@ -63,10 +62,10 @@ class ProfileActivity :
                 ).show()
             }, doOnError = {
                 showLoading(false)
-                if (registerResult.exception is FieldErrorException) {
-                    handleFieldError(registerResult.exception as FieldErrorException)
+                if (updateResult.exception is FieldErrorException) {
+                    handleFieldError(updateResult.exception as FieldErrorException)
                 } else {
-                    showError(true, registerResult.exception as Exception)
+                    showError(true, updateResult.exception as Exception)
                 }
             })
         }

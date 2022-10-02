@@ -10,8 +10,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:title="@string/text_title_toolbar_profile"
         app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/text_title_toolbar_profile"
         app:titleTextColor="@color/text_color_primary" />
 
     <ProgressBar
@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/iv_avatar_user"
